@@ -51,7 +51,6 @@ const footerItemsSX = {
   color: '#74788b',
   cursor: 'pointer',
   textAlign: { md: 'left', xs: 'center' },
-
   "&:hover": {
     color: '#007cf5'
   }
@@ -59,6 +58,21 @@ const footerItemsSX = {
 
 const SubscribeTextStyle = {
   color: '#2c3646'
+}
+
+const iconStyleSX = {
+  fontSize: "18px",
+  padding: " 0px 0px 5px 5px",
+  transform: "rotate(-45deg)",
+  color: "white",
+}
+
+const paperStyleSX = {
+  p: "2px 10px",
+  display: "flex",
+  alignItems: "center",
+  maxWidth: 400,
+  marginY: "20px",
 }
 
 const FooterSection = () => {
@@ -88,13 +102,7 @@ const FooterSection = () => {
 
             <Paper
               component="form"
-              sx={{
-                p: "2px 10px",
-                display: "flex",
-                alignItems: "center",
-                maxWidth: 400,
-                marginY: "20px",
-              }}
+              sx={paperStyleSX}
             >
               <InputBase
                 sx={{ m: 1, flex: 1 }}
@@ -106,12 +114,7 @@ const FooterSection = () => {
                 variant="contained"
                 endIcon={
                   <SendIcon
-                    style={{
-                      fontSize: "18px",
-                      padding: " 0px 0px 5px 5px",
-                      transform: "rotate(-45deg)",
-                      color: "white",
-                    }}
+                    style={iconStyleSX}
                   />
                 }
               >
@@ -126,34 +129,33 @@ const FooterSection = () => {
                 }
                 width={"40px"}
                 height={'40px'}
-                style={{ borderRadius: "50%", paddingRight: "10px" }}
+                style={{ borderRadius: "30%", paddingRight: "10px" }}
                 alt="logo"
               />
               <img
                 src={
-                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4r6D0yZx8hmSrOBGQuuijqbmyjERX7u9BM9bbUIPsDA&s"
+                  "https://cdn4.iconfinder.com/data/icons/social-media-icons-the-circle-set/48/twitter_circle-512.png"
                 }
                 width={"40px"}
                 height={'40px'}
-                style={{ borderRadius: "50%", paddingRight: "10px" }}
                 alt="logo"
               />
               <img
                 src={
-                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4r6D0yZx8hmSrOBGQuuijqbmyjERX7u9BM9bbUIPsDA&s"
+                  "https://static.vecteezy.com/system/resources/previews/018/930/587/original/linkedin-logo-linkedin-icon-transparent-free-png.png"
                 }
-                width={"40px"}
-                height={'40px'}
-                style={{ borderRadius: "50%", paddingRight: "10px" }}
+                width={"60px"}
+                height={'60px'}
+                style={{ borderRadius: "50%", marginTop: '-10px' }}
                 alt="logo"
               />
               <img
                 src={
-                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4r6D0yZx8hmSrOBGQuuijqbmyjERX7u9BM9bbUIPsDA&s"
+                  "https://w7.pngwing.com/pngs/679/48/png-transparent-youtube-logo-youtube-play-button-computer-icons-youtube-icon-angle-rectangle-desktop-wallpaper.png"
                 }
-                width={"40px"}
-                height={'40px'}
-                style={{ borderRadius: "50%" }}
+                width={"70px"}
+                height={'50px'}
+                style={{ borderRadius: "50%" ,  marginTop: '-5px', marginLeft:'-10px'}}
                 alt="logo"
               />
             </Box>

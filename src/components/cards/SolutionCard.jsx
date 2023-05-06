@@ -24,6 +24,11 @@ const seeMoreSX = {
   }
 }
 
+const descriptionStyleSX = {
+  display: '-webkit-box', '-webkit-line-clamp': 3, '-webkit-box-orient': 'vertical',
+  overflow: 'hidden'
+}
+
 const SolutionCard = ({ data, index }) => {
   return (
     <Box display={'flex'} width="100%" justifyContent={'center'}>
@@ -32,7 +37,7 @@ const SolutionCard = ({ data, index }) => {
       >
         <Box padding={"65px 40px 60px"}>
           <img src={data.image} alt="logo" />
-          <Typography color="#4f5b6d" paddingTop={"40px"} sx={{ display: '-webkit-box', '-webkit-line-clamp': 3, '-webkit-box-orient': 'vertical', overflow: 'hidden' }}>
+          <Typography color="#4f5b6d" paddingTop={"40px"} sx={descriptionStyleSX}>
             {data.description}
           </Typography>
 

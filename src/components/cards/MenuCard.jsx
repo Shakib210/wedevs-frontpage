@@ -32,15 +32,15 @@ const titleSX = (fontColor) => {
         }
     }
 }
+
 const boxDesignSX = {
-    padding:'10px',
+    padding: '10px',
     borderRadius: '10px',
-    display:'flex',
-    cursor:'pointer',
+    display: 'flex',
+    cursor: 'pointer',
     "&:hover": {
         backgroundColor: '#eff4f4'
     }
-
 }
 
 const MenuCard = ({ data }) => {
@@ -66,9 +66,11 @@ const MenuCard = ({ data }) => {
                     </Box>
 
                 ) : (
+
                     <Box sx={viewProductSX}>
                         <Typography>View all products</Typography>  <ArrowForwardIcon sx={{ paddingLeft: '5px' }} />
                     </Box>
+
                 )}
             </Grid>
         </Grid>

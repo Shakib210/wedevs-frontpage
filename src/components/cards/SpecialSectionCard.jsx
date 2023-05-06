@@ -1,6 +1,5 @@
 import { Box, Typography } from '@mui/material'
 import React from 'react'
-import codeIcon from "../../assets/icons/code-icon.png";
 
 const cardSX = {
   display: 'flex', justifyContent: { md: 'left', xs: 'center' }, alignItems: { md: 'start', xs: 'center' }, flexDirection: 'column'

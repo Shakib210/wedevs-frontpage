@@ -4,7 +4,6 @@ import Header from "../components/homePage/Header";
 import HeaderContent from "../components/homePage/HeaderContent";
 import Solutions from "../components/homePage/Solutions";
 import SpecialSection from "../components/homePage/SpecialSection";
-import FooterBG from "../assets/images/footer-section-bg.PNG";
 import Glance from "../components/homePage/Glance";
 import PeopleThink from "../components/homePage/PeopleThink";
 import OurProducts from "../components/homePage/OurProducts";
@@ -70,13 +69,9 @@ const HomePage = () => {
         <OurProducts />
       </Box>
 
-      {/* <Box>
-      <UpperFooter />
-    </Box> */}
       <Box
         sx={{
           background: `linear-gradient(180deg,rgba(0,124,245,.12) 2%,hsla(0,0%,100%,0)),url(https://wedevs.com/img/wedevs/main-footer-bg.svg) no-repeat center 205px`,
- 
         }}
       >
         <UpperFooter />
