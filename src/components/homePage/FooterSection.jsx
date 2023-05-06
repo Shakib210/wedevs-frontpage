@@ -75,7 +75,16 @@ const paperStyleSX = {
   marginY: "20px",
 }
 
+const logos = {
+  facebook: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4r6D0yZx8hmSrOBGQuuijqbmyjERX7u9BM9bbUIPsDA&s",
+  twitter: "https://cdn4.iconfinder.com/data/icons/social-media-icons-the-circle-set/48/twitter_circle-512.png",
+  linkedin: "https://static.vecteezy.com/system/resources/previews/018/930/587/original/linkedin-logo-linkedin-icon-transparent-free-png.png",
+  youtube: "https://w7.pngwing.com/pngs/679/48/png-transparent-youtube-logo-youtube-play-button-computer-icons-youtube-icon-angle-rectangle-desktop-wallpaper.png",
+  companies: "https://wedevs.com/img/wedevs/footer-payment-g-image.png"
+}
+
 const FooterSection = () => {
+
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -124,38 +133,30 @@ const FooterSection = () => {
 
             <Box display={"flex"}>
               <img
-                src={
-                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4r6D0yZx8hmSrOBGQuuijqbmyjERX7u9BM9bbUIPsDA&s"
-                }
+                src={logos.facebook}
                 width={"40px"}
                 height={'40px'}
                 style={{ borderRadius: "30%", paddingRight: "10px" }}
                 alt="logo"
               />
               <img
-                src={
-                  "https://cdn4.iconfinder.com/data/icons/social-media-icons-the-circle-set/48/twitter_circle-512.png"
-                }
+                src={logos.twitter}
                 width={"40px"}
                 height={'40px'}
                 alt="logo"
               />
               <img
-                src={
-                  "https://static.vecteezy.com/system/resources/previews/018/930/587/original/linkedin-logo-linkedin-icon-transparent-free-png.png"
-                }
+                src={logos.linkedin}
                 width={"60px"}
                 height={'60px'}
                 style={{ borderRadius: "50%", marginTop: '-10px' }}
                 alt="logo"
               />
               <img
-                src={
-                  "https://w7.pngwing.com/pngs/679/48/png-transparent-youtube-logo-youtube-play-button-computer-icons-youtube-icon-angle-rectangle-desktop-wallpaper.png"
-                }
+                src={logos.youtube}
                 width={"70px"}
                 height={'50px'}
-                style={{ borderRadius: "50%" ,  marginTop: '-5px', marginLeft:'-10px'}}
+                style={{ borderRadius: "50%", marginTop: '-5px', marginLeft: '-10px' }}
                 alt="logo"
               />
             </Box>
@@ -214,7 +215,7 @@ const FooterSection = () => {
 
         <Box>
           <img
-            src={"https://wedevs.com/img/wedevs/footer-payment-g-image.png"}
+            src={logos.companies}
             height={"30px"}
             alt="company"
           />

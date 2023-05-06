@@ -10,6 +10,13 @@ import OurProducts from "../components/homePage/OurProducts";
 import UpperFooter from "../components/homePage/UpperFooter";
 import FooterSection from "../components/homePage/FooterSection";
 
+const backgroundImages = {
+  solutions: `url(https://wedevs.com/img/wedevs/front-page/our-solution-section-bg.svg)`,
+  specials: `url(https://wedevs.com/img/wedevs/front-page/special-section-bg.svg)`,
+  glance: `url(https://wedevs.com/img/wedevs/front-page/testimonial-section-bg.svg)`,
+  ourProd: `url(https://wedevs.com/img/wedevs/front-page/rating-section-bg.svg)`
+}
+
 const HomePage = () => {
   return (
     <Box>
@@ -27,7 +34,7 @@ const HomePage = () => {
       </Box>
       <Box
         sx={{
-          backgroundImage: `url(https://wedevs.com/img/wedevs/front-page/our-solution-section-bg.svg)`,
+          backgroundImage: backgroundImages.solutions,
           backgroundRepeat: "no-repeat",
           backgroundSize: "50%",
           backgroundPosition: "right",
@@ -37,7 +44,7 @@ const HomePage = () => {
       </Box>
       <Box
         sx={{
-          backgroundImage: `url(https://wedevs.com/img/wedevs/front-page/special-section-bg.svg)`,
+          backgroundImage: backgroundImages.specials,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
@@ -46,7 +53,7 @@ const HomePage = () => {
       </Box>
       <Box
         sx={{
-          backgroundImage: `url(https://wedevs.com/img/wedevs/front-page/testimonial-section-bg.svg)`,
+          backgroundImage: backgroundImages.glance,
           backgroundRepeat: "no-repeat",
           backgroundSize: "100%",
           minHeight: "1200px",
@@ -61,7 +68,7 @@ const HomePage = () => {
 
       <Box
         sx={{
-          backgroundImage: `url(https://wedevs.com/img/wedevs/front-page/rating-section-bg.svg)`,
+          backgroundImage: backgroundImages.ourProd,
           backgroundRepeat: "no-repeat",
           backgroundSize: "50%",
         }}

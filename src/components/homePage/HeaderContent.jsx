@@ -86,20 +86,8 @@ const uIconSX = {
   },
 }
 
-const mIconSX = {
-  position: 'absolute',
-  left: '450px',
-  top: '100px',
-  animation: "mover 1s infinite alternate",
-  '@keyframes mover': {
-    '0%': {
-      transform: 'translateY(0)',
-    },
-    '100%': {
-      transform: 'translateY(-5px)',
-    },
-  },
-}
+const dShapeLogo = "https://wedevs.com/_ipx/img/wedevs/front-page/dokan.png?w=70&f=webp&q=100"
+const WShapeLogo = "https://wedevs.com/_ipx/img/wedevs/front-page/user-frontend.png?w=70&f=webp&q=100"
 
 const HeaderContent = () => {
   return (
@@ -143,11 +131,11 @@ const HeaderContent = () => {
       </Grid>
 
       <Box sx={dIconSX}>
-        <img src='https://wedevs.com/_ipx/img/wedevs/front-page/dokan.png?w=70&f=webp&q=100' />
+        <img src={dShapeLogo} alt="dShapeLogo" />
       </Box>
 
       <Box sx={uIconSX} >
-        <img src='https://wedevs.com/_ipx/img/wedevs/front-page/user-frontend.png?w=70&f=webp&q=100' />
+        <img src={WShapeLogo} alt="wShapeLogo"/>
       </Box>
     </Container>
   );
