@@ -75,10 +75,8 @@ const HomePage = () => {
     </Box> */}
       <Box
         sx={{
-          backgroundImage: `url(${FooterBG})`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          marginTop: "300px",
+          background: `linear-gradient(180deg,rgba(0,124,245,.12) 2%,hsla(0,0%,100%,0)),url(https://wedevs.com/img/wedevs/main-footer-bg.svg) no-repeat center 205px`,
+ 
         }}
       >
         <UpperFooter />

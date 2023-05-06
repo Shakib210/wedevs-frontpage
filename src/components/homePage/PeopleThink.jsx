@@ -1,13 +1,15 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Slider from "react-slick";
 import PeopleThinkCard from "../cards/PeopleThinkCard";
+import { testimonialsData } from "../../assets/data/testimonialsData";
 
 const hoverSX = {
   color: "#898f91",
   textAlign: { md: "end", xs: "center" },
   marginTop: "40px",
   cursor: "pointer",
+  paddingRight: {md:'220px'},
   "&:hover": {
     color: "#007cf5",
   },
@@ -33,6 +35,7 @@ const headerImageSX = {
 
 const PeopleThink = () => {
   const slider = useRef();
+  const [selectedIndex, setSelectedIndex] = useState(0)
   const settings = {
     dots: false,
     infinite: false,
@@ -48,11 +51,12 @@ const PeopleThink = () => {
   };
 
   const slideGotoHandler = (index) => {
+    setSelectedIndex(index)
     if (slider && slider.current) slider.current.slickGoTo(index);
   };
 
   return (
-    <Container maxWidth="lg" paddingBottom="200px">
+    <Container maxWidth="lg">
       <Box>
         <Typography variant="h6" color="#4055ab" textAlign={"center"}>
           Testimonials
@@ -67,7 +71,7 @@ const PeopleThink = () => {
         container
         spacing={2}
         justifyContent={"center"}
-        sx={{ marginTop: "60px", marginBottom: "200px" }}
+        sx={{ marginTop: "60px", marginBottom: "100px" }}
       >
         <Grid
           xs={2}
@@ -90,8 +94,8 @@ const PeopleThink = () => {
             sx={sliderPaperSX}
           >
             <Slider ref={slider} {...settings}>
-              {[1, 2, 3].map((item) => (
-                <PeopleThinkCard item={item} />
+              {testimonialsData.map((item) => (
+                <PeopleThinkCard data={item} />
               ))}
             </Slider>
           </Box>
@@ -110,39 +114,18 @@ const PeopleThink = () => {
             gap={"10px"}
             marginTop={"-70px"}
           >
-            <Box>
-              <img
-                src={
-                  "https://secure.gravatar.com/avatar/be9a4e9519964b933dea6723d480c95a?d=mm&r=g&s=80"
-                }
-                width={"60px"}
-                style={{ borderRadius: "50%", cursor: "pointer" }}
-                alt="img"
-                onClick={() => slideGotoHandler(0)}
-              />
-            </Box>
-            <Box>
-              <img
-                src={
-                  "https://cdn.wedevs.com/uploads/2017/06/Jazib-Zaman-90x90.png"
-                }
-                width={"60px"}
-                style={{ borderRadius: "50%", cursor: "pointer" }}
-                alt="img"
-                onClick={() => slideGotoHandler(1)}
-              />
-            </Box>
-            <Box>
-              <img
-                src={
-                  "https://cdn.wedevs.com/uploads/2017/05/Melissa-McGovern-90x90.jpg"
-                }
-                width={"60px"}
-                style={{ borderRadius: "50%", cursor: "pointer" }}
-                alt="img"
-                onClick={() => slideGotoHandler(2)}
-              />
-            </Box>
+            {testimonialsData.map((item, i) => (
+              <Box>
+                <img
+                  src={item.image}
+                  width={"60px"}
+                  style={{ borderRadius: "50%", cursor: "pointer", boxShadow: selectedIndex === i && '0 17px 53px 0 rgba(0,0,0,.25)' }}
+                  alt="img"
+                  onClick={() => slideGotoHandler(i)}
+                />
+              </Box>
+            ))}
+
           </Box>
         </Grid>
         <Box width="100%">

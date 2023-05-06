@@ -6,19 +6,59 @@ import InputBase from "@mui/material/InputBase";
 import SendIcon from "@mui/icons-material/Send";
 import Divider from "@mui/material/Divider";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import { companyData, productData, resourceData } from "../../assets/data/footerData";
 
 const backToTopSX = {
   boxShadow: "0 20px 30px 0 rgba(17,31,98,.5)",
-  width: "40px",
-  height: "40px",
+  width: "50px",
+  height: "50px",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
   borderRadius: "50%",
-  marginTop: "-20px",
+  marginTop: "-25px",
   zIndex: "5",
   backgroundColor: "white",
   cursor: "pointer",
+  animation: 'scrollToTop-data-v-29ac9170 1.5s ease-in-out 0s infinite'
+}
+
+const animatedIconSX = {
+  animation: 'animateBox 1.5s ease-in-out 0s infinite',
+  '@keyframes animateBox': {
+    '0%': {
+      transform: 'translateY(8px)',
+      opacity: '0'
+    },
+    '25%': {
+      opacity: '0.5'
+    },
+    '50%': {
+      opacity: '1'
+    },
+    '75%': {
+      opacity: '.5'
+    },
+    '100%': {
+      transform: 'translateY(-8px)',
+      opacity: '0'
+    },
+  },
+}
+
+const footerItemsSX = {
+  paddingY: "10px",
+  color: '#74788b',
+  cursor: 'pointer',
+  textAlign: { md: 'left', xs: 'center' },
+
+  "&:hover": {
+    color: '#007cf5'
+  }
+}
+
+const SubscribeTextStyle = {
+  color: '#2c3646'
 }
 
 const FooterSection = () => {
@@ -43,7 +83,7 @@ const FooterSection = () => {
             />
 
             <Typography marginTop={"30px"} variant="h5">
-              Subscribe to our newsletter{" "}
+              <strong style={SubscribeTextStyle}>Subscribe</strong> to our newsletter
             </Typography>
 
             <Paper
@@ -84,7 +124,8 @@ const FooterSection = () => {
                 src={
                   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4r6D0yZx8hmSrOBGQuuijqbmyjERX7u9BM9bbUIPsDA&s"
                 }
-                width={"50px"}
+                width={"40px"}
+                height={'40px'}
                 style={{ borderRadius: "50%", paddingRight: "10px" }}
                 alt="logo"
               />
@@ -92,7 +133,8 @@ const FooterSection = () => {
                 src={
                   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4r6D0yZx8hmSrOBGQuuijqbmyjERX7u9BM9bbUIPsDA&s"
                 }
-                width={"50px"}
+                width={"40px"}
+                height={'40px'}
                 style={{ borderRadius: "50%", paddingRight: "10px" }}
                 alt="logo"
               />
@@ -100,7 +142,8 @@ const FooterSection = () => {
                 src={
                   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4r6D0yZx8hmSrOBGQuuijqbmyjERX7u9BM9bbUIPsDA&s"
                 }
-                width={"50px"}
+                width={"40px"}
+                height={'40px'}
                 style={{ borderRadius: "50%", paddingRight: "10px" }}
                 alt="logo"
               />
@@ -108,30 +151,31 @@ const FooterSection = () => {
                 src={
                   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4r6D0yZx8hmSrOBGQuuijqbmyjERX7u9BM9bbUIPsDA&s"
                 }
-                width={"50px"}
+                width={"40px"}
+                height={'40px'}
                 style={{ borderRadius: "50%" }}
                 alt="logo"
               />
             </Box>
           </Box>
         </Grid>
-        <Grid item md={2} xs={12} textAlign={"center"}>
+        <Grid item md={2} xs={12} textAlign={{ md: 'left', xs: 'center' }}>
           <Typography variant="h4">Company</Typography>
 
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-            <Typography sx={{ paddingY: "10px" }}>About</Typography>
+          {companyData.map((item) => (
+            <Typography sx={footerItemsSX} >{item}</Typography>
           ))}
         </Grid>
-        <Grid item md={2} xs={12} textAlign={"center"}>
+        <Grid item md={2} xs={12} textAlign={{ md: 'left', xs: 'center' }}>
           <Typography variant="h4">Resources</Typography>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
-            <Typography sx={{ paddingY: "10px" }}>About</Typography>
+          {productData.map((item) => (
+            <Typography sx={footerItemsSX} >{item}</Typography>
           ))}
         </Grid>
-        <Grid item md={3} xs={12} textAlign={"center"}>
+        <Grid item md={3} xs={12} textAlign={{ md: 'left', xs: 'center' }}>
           <Typography variant="h4">Products</Typography>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
-            <Typography sx={{ paddingY: "10px" }}>About</Typography>
+          {resourceData.map((item) => (
+            <Typography sx={footerItemsSX} >{item}</Typography>
           ))}
         </Grid>
       </Grid>
@@ -144,11 +188,12 @@ const FooterSection = () => {
           alignItems={"center"}
           justifyContent={"center"}
         >
+
           <Box
             sx={backToTopSX}
             onClick={scrollToTop}
           >
-            <KeyboardArrowUpIcon />
+            <KeyboardArrowUpIcon fontSize="large" sx={animatedIconSX} />
           </Box>
         </Box>
       </Box>

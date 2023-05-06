@@ -1,13 +1,20 @@
 import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Stack from "@mui/joy/Stack";
-import { Typography } from "@mui/material";
+import { Menu, Typography, MenuItem, Divider, Grid } from "@mui/material";
 import PersonOutlineIcon from "@mui/icons-material/Person";
 import ArrowDropDownOutlinedIcon from "@mui/icons-material/ArrowDropDownOutlined";
 import logo from "../../assets/images/wedevs-logo.png";
 import cartIcon from "../../assets/images/cart.svg";
 import MenuIcon from "@mui/icons-material/Menu";
-import MenuModal from "../cards/MenuModal"; 
+import MenuModal from "../MenuModal";
+import ClearIcon from '@mui/icons-material/Clear';
+import Fade from '@mui/material/Fade';
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import MenuCard from "../cards/MenuCard";
+import { headerData } from "../../assets/data/headerData";
+
 
 const headerMenuItemSX = {
   cursor: "pointer",
@@ -37,8 +44,11 @@ const accuntButtonSX = {
 };
 
 const Header = () => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [phoneAnchorEl, setPhoneAnchorEl] = useState(null);
   const [open, setOpen] = useState(false);
+  const [phoneMenuOpen, setPhoneMenuOpen] = useState(false)
+  const [showProduct, setShowProduct] = useState(false)
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -48,6 +58,17 @@ const Header = () => {
     setAnchorEl(null);
     setOpen(false);
   };
+
+  const handlePhoneOpen = (e) => {
+    const anchorEl = phoneMenuOpen ? "" : e.currentTarget
+    setPhoneAnchorEl(anchorEl)
+    setPhoneMenuOpen(!phoneMenuOpen)
+    setShowProduct(false)
+  }
+
+  const showProductHandler = () => {
+    setShowProduct(!showProduct)
+  }
 
   return (
     <Stack
@@ -98,10 +119,59 @@ const Header = () => {
       <Box
         sx={{ cursor: "pointer" }}
         display={{ md: "none", xs: "block" }}
-        marginTop={"20px"}
+        marginTop={"10px"}
+        onClick={handlePhoneOpen}
       >
-        <MenuIcon sx={{ color: "gray" }} />
+        {phoneMenuOpen ? <ClearIcon fontSize="large" sx={{ color: "gray" }} /> : <MenuIcon fontSize="large" sx={{ color: "gray" }} />}
       </Box>
+
+      <Menu
+        id="fade-menu"
+        MenuListProps={{
+          'aria-labelledby': 'fade-button',
+        }}
+        anchorEl={phoneAnchorEl}
+        open={phoneMenuOpen}
+        onClose={handlePhoneOpen}
+        TransitionComponent={Fade}
+        sx={{ display: { md: "none", xs: "block", marginTop: showProduct && '28px' } }}
+
+      >
+        <MenuItem >
+          <Box width={'380px'} minHeight={'50px'} display={'flex'} justifyContent={'space-between'} alignItems={'center'} onClick={() => showProductHandler()}>
+            <Typography>Product</Typography>
+
+            <Box width={'30px'} height={'30px'} display={'flex'} justifyContent={'center'} alignItems={'center'} border={'1px solid black'}>
+              {!showProduct ? <KeyboardArrowDownIcon /> : <KeyboardArrowUpIcon />}
+            </Box>
+          </Box>
+
+
+        </MenuItem>
+        <Divider />
+        <Grid container>
+          {showProduct && (
+            headerData.map((item) => (
+              <>
+                <MenuItem >
+                  <MenuCard data={item} />
+                </MenuItem>
+                <Divider />
+              </>
+            ))
+          )}
+        </Grid>
+        <MenuItem >Blog</MenuItem>
+        <Divider />
+        <MenuItem>About</MenuItem>
+        <Divider />
+        <MenuItem>Docs</MenuItem>
+        <Divider />
+        <MenuItem>Contact Us</MenuItem>
+        <Divider />
+        <MenuItem>My Account</MenuItem>
+
+      </Menu>
     </Stack>
   );
 };

@@ -1,6 +1,7 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import React from "react";
 import SpecialSectionCard from "../cards/SpecialSectionCard";
+import { specialData } from "../../assets/data/specialData";
 
 const SpecialSection = () => {
   return (
@@ -28,9 +29,9 @@ const SpecialSection = () => {
 
       <Box width={"100%"} display={"flex"} justifyContent="center" >
         <Grid container spacing={3} width={"80%"}>
-          {[1, 2, 3, 4, 5, 6].map((item) => (
-            <Grid item md={4} sm={6} xs={12} key={item}>
-              <SpecialSectionCard />
+          {specialData.map((item) => (
+            <Grid item md={4} sm={6} xs={12} key={item.id}>
+              <SpecialSectionCard data={item} />
             </Grid>
           ))}
         </Grid>

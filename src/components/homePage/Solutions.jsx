@@ -1,6 +1,7 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import React from "react";
 import SolutionCard from "../cards/SolutionCard";
+import { solutionsData } from "../../assets/data/solutionsData";
 
 const allProductsButtonSX = {
   backgroundColor: "#007cf5",
@@ -43,9 +44,9 @@ const Solutions = () => {
         </Box>
 
         <Grid container spacing={5} marginTop={"50px"}>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, i) => (
-            <Grid item md={4} sm={6} xs={12} key={item}>
-              <SolutionCard index={i} />
+          {solutionsData.map((item, i) => (
+            <Grid item md={4} sm={6} xs={12} key={item.id}>
+              <SolutionCard data={item} index={i} />
             </Grid>
           ))}
         </Grid>

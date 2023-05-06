@@ -69,8 +69,8 @@ const OurProducts = () => {
   };
 
   return (
-    <Box>
-      <Box textAlign={"center"}>
+    <Box marginBottom='200px'>
+      <Box textAlign={"center"} >
         <Typography variant="h4" color="#0068f3" fontWeight="bold">
           Our Products Are Highly Rated
         </Typography>

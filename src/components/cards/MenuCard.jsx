@@ -23,29 +23,47 @@ const viewProductSX = {
     }
 }
 
+const titleSX = (fontColor) => {
+    return {
+        fontSize: '16px',
+        fontWeight: '700',
+        "&:hover": {
+            color: fontColor
+        }
+    }
+}
+const boxDesignSX = {
+    padding:'10px',
+    borderRadius: '10px',
+    display:'flex',
+    cursor:'pointer',
+    "&:hover": {
+        backgroundColor: '#eff4f4'
+    }
+
+}
+
 const MenuCard = ({ data }) => {
     return (
-        <Grid item sx={12} md={4} padding={'10px'} key={data}>
+        <Grid item sx={12} md={4} key={data.id} padding={'5px'}>
             <Grid container>
-                {data !== 9 ? (
-                    <>
+                {data.id !== '9' ? (
+                    <Box sx={boxDesignSX}>
                         <Grid item xs={3}>
                             <img
-                                src={
-                                    "https://wedevs.com/_ipx/img/wedevs/front-page/dokan.png?w=100&f=webp&q=100"
-                                }
+                                src={data.img}
                                 alt="logo"
                                 width="40px"
                                 height="40px"
                             />
                         </Grid>
                         <Grid item xs={9}>
-                            <Typography fontSize="16px" fontWeight={'700'}>Dokan Multivendor</Typography>
+                            <Typography sx={titleSX(data.hoverColor)} >{data.title}</Typography>
                             <Typography fontSize="14px" color='#637178'>
-                                Build your dream multi vendor marketplace
+                                {data.description}
                             </Typography>
                         </Grid>
-                    </>
+                    </Box>
 
                 ) : (
                     <Box sx={viewProductSX}>

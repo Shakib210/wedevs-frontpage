@@ -48,10 +48,57 @@ const headerCardSX = {
 const rightSideDivSX = {
   backgroundImage: `url(${heroFeat})`,
   backgroundRepeat: "no-repeat",
-  backgroundSize: "100%",
-  width: { xs: "90%", md: "100%" },
+  backgroundSize: "cover",
+  width: { xs: "100%", md: "100%" },
   // height:'100px',
-  height: "500px",
+  minHeight: "500px",
+}
+
+const dIconSX = {
+  position: 'absolute',
+  right: '45%',
+  top: '45%',
+  display: { md: 'block', sm: 'none', xs: 'none' },
+  animation: "mover 1s infinite alternate",
+  '@keyframes mover': {
+    '0%': {
+      transform: 'translateY(0)',
+    },
+    '100%': {
+      transform: 'translateY(-5px)',
+    },
+  },
+}
+
+const uIconSX = {
+  position: 'absolute',
+  right: '35%',
+  top: '65%',
+  display: { md: 'block', sm: 'none', xs: 'none' },
+  animation: "mover 1s infinite alternate",
+  '@keyframes mover': {
+    '0%': {
+      transform: 'translateY(0)',
+    },
+    '100%': {
+      transform: 'translateY(-5px)',
+    },
+  },
+}
+
+const mIconSX = {
+  position: 'absolute',
+  left: '450px',
+  top: '100px',
+  animation: "mover 1s infinite alternate",
+  '@keyframes mover': {
+    '0%': {
+      transform: 'translateY(0)',
+    },
+    '100%': {
+      transform: 'translateY(-5px)',
+    },
+  },
 }
 
 const HeaderContent = () => {
@@ -87,12 +134,21 @@ const HeaderContent = () => {
             <img src={brandLogo} alt="Brand Logo" />
           </Box>
         </Grid>
-        <Grid item md={6} xs={12} display={"flex"}>
+        <Grid item md={6} xs={12} >
           <Box
             sx={rightSideDivSX}
-          ></Box>
+          >
+          </Box>
         </Grid>
       </Grid>
+
+      <Box sx={dIconSX}>
+        <img src='https://wedevs.com/_ipx/img/wedevs/front-page/dokan.png?w=70&f=webp&q=100' />
+      </Box>
+
+      <Box sx={uIconSX} >
+        <img src='https://wedevs.com/_ipx/img/wedevs/front-page/user-frontend.png?w=70&f=webp&q=100' />
+      </Box>
     </Container>
   );
 };

@@ -1,6 +1,7 @@
 import { Menu, Grid, Box } from "@mui/material";
 import React from "react";
-import MenuCard from "./MenuCard";
+import MenuCard from "./cards/MenuCard";
+import { headerData } from "../assets/data/headerData";
 
 const menuStyleSX =
 {
@@ -46,7 +47,7 @@ const MenuModal = ({ anchorEl, handleClose, open }) => {
     >
       <Box padding={"10px 0px 20px 30px"} key={'box'}>
         <Grid container>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
+          {headerData.map((item) => (
             <MenuCard data={item} />
           ))}
         </Grid>
